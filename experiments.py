@@ -58,7 +58,7 @@ def post_experiment(directory_name, dataset, model):
     plt.savefig(os.path.join(directory_name, "p_weights.jpg"))
     plt.close()
 
-    num_samples = 1
+    num_samples = 5000
     marginal_log_likelihood = iwae.measure_marginal_log_likelihood(model=model, dataset=dataset,
                                                                    subdataset="test", num_samples=num_samples)
 
@@ -79,7 +79,7 @@ def post_experiment(directory_name, dataset, model):
         plt.savefig(os.path.join(directory_name, "log_variances_layer_{}.png".format(i+1)))
         plt.close()
     iwae.chop_units_with_variance_under_threshold(model, variances)
-    
+
     with open(os.path.join(directory_name, "numbers_of_active_units.txt".format(num_samples)), "w") as f:
         f.write(str([layer.mean_network.last_linear_layer_weights_np().shape[1] for layer in model.q_layers]))
 
@@ -118,7 +118,7 @@ def training_experiment(directory_name, latent_units, hidden_units_q, hidden_uni
     def checkpoint1to8(i, dataset, model, optimizer, srng):
         optimizer.learning_rate = 1e-4*round(10.**(1-(i-1)/7.), 1)
         model = train.train(model=model, dataset=dataset, optimizer=optimizer,
-                            minibatch_size=20, n_epochs=1**(i-1), srng=srng,
+                            minibatch_size=20, n_epochs=3**(i-1), srng=srng,
                             num_samples=k, model_type=model_type)
         return model, optimizer, srng
 
@@ -143,9 +143,9 @@ def training_experiment(directory_name, latent_units, hidden_units_q, hidden_uni
     post_experiment(directory_name, dataset, model)
 
 
-def experiment2(directory_name, direction='vae_to_iwae'):
+def experiment2(directory_name, dataset='MNIST', direction='vae_to_iwae'):
     '''The experiment that trains a vae initialized at an iwae or vice versa'''
-    dataset = datasets.load_dataset_from_name('MNIST')
+    dataset = datasets.load_dataset_from_name(dataset)
     if direction == 'vae_to_iwae':
         previous_args = dict(layers=1, model='vae', k=1, dataset='MNIST', exp='train')
         new_model_type = 'iwae'
@@ -190,4 +190,4 @@ if __name__ == '__main__':
         training_experiment(directory_name, latent_units=latent_units, hidden_units_q=hidden_units_q, hidden_units_p=hidden_units_p,
                             k=args.k, model_type=args.model, dataset=args.dataset, checkpoint=args.checkpoint)
     else:
-        experiment2(directory_name, args.exp)
+        experiment2(directory_name, direction=args.exp, dataset=args.dataset)

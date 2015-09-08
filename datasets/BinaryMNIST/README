@@ -1,1 +1,4 @@
-Directory for the binarized version of the MNIST dataset from http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/
+Directory for the binarized version of the MNIST dataset from 
+http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_train.amat
+http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_valid.amat
+http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_test.amat

@@ -80,9 +80,9 @@ def binarized_mnist(n_validation=400):
         return images
 
     train_data = load_mnist_images_np(
-        os.path.join(config.DATASETS_DIR, 'MNIST', 'train-images.idx3-ubyte'))
+        os.path.join(config.DATASETS_DIR, 'MNIST', 'train-images-idx3-ubyte'))
     test_data = load_mnist_images_np(
-        os.path.join(config.DATASETS_DIR, 'MNIST', 't10k-images.idx3-ubyte'))
+        os.path.join(config.DATASETS_DIR, 'MNIST', 't10k-images-idx3-ubyte'))
 
     return BinarizedDatasetTheano(DatasetTheano(train_data, test_data, n_validation, shuffle=False))
 
