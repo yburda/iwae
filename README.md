@@ -16,14 +16,14 @@ python download_mnist.py
 The OMNIGLOT dataset resized to 28x28 pixel images is provided in the datasets/OMNI/chardata.mat file.
 
 # Usage
-## Reproducing results from table 1
-To train a model as reported in table 1 of the IWAE paper, run
+## Training randomly initialized models
+To train a model (VAE or IWAE) as reported in table 1 in the IWAE paper, run
 ```
 python experiments.py --model [model] --dataset [dataset] --k [k] --layers [l]
 ```
-where __model__ is vae or iwae; _dataset_ is one of BinFixMNIST, MNIST, OMNI; _k_ is 1, 5, or 50; _l_ is 1 or 2.
+where _model_ is vae or iwae; _dataset_ is one of BinFixMNIST, MNIST, OMNI; _k_ is 1, 5, or 50; _l_ is 1 or 2.
 
-## Reproducing results from section 5.2
+## Training a model initialized at another trained model
 To train a one layer IWAE with k=50 initialized at a one layer VAE trained with k=1, train the one layer VAE with k=1 as described above, and then run
 ```
 python experiments.py --exp iwae_to_vae
