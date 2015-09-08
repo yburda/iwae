@@ -1,7 +1,7 @@
 # IWAE
-This is code accompanying the paper Importance Weighted Autoencoders by Yuri Burda, Roger Grosse, and Ruslan Salakhutdinov available at http://arxiv.org/abs/1509.00519.
+This is code accompanying the paper [Importance Weighted Autoencoders](http://arxiv.org/abs/1509.00519) by Yuri Burda, Roger Grosse, and Ruslan Salakhutdinov.
 
-# Installation and Requirements
+# Requirements
 This implementation is based on [theano](http://deeplearning.net/software/theano/). It also uses [progressbar](https://pypi.python.org/pypi/progressbar) to display the training progress.
 
 # Configuration
