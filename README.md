@@ -19,7 +19,7 @@ The OMNIGLOT dataset resized to 28x28 pixel images is provided in the datasets/O
 ## Reproducing results from table 1
 To train a model as reported in table 1 of the IWAE paper, run
 ```
-python experiments.py --model _model_ --dataset _dataset_ --k _k_ --layers _l_
+python experiments.py --model [model] --dataset [dataset] --k [k] --layers [l]
 ```
 where __model__ is vae or iwae; _dataset_ is one of BinFixMNIST, MNIST, OMNI; _k_ is 1, 5, or 50; _l_ is 1 or 2.
 
