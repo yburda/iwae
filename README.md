@@ -13,7 +13,7 @@ To download the MNIST dataset (both the non-binarized version, and the binarized
 python download_mnist.py
 ```
 
-The OMNIGLOT dataset resized to 28x28 pixel images is provided in the datasets/OMNI/chardata.mat file.
+The OMNIGLOT dataset has not been publicly released yet. We will update the repository once it gets released.
 
 # Usage
 ## Training randomly initialized models
