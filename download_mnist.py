@@ -18,6 +18,6 @@ if __name__ == '__main__':
     subdatasets = ['train', 'valid', 'test']
     for subdataset in subdatasets:
         filename = 'binarized_mnist_{}.amat'.format(subdataset)
+        url = 'http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_{}.amat'.format(subdatasets)
         local_filename = os.path.join(config.DATASETS_DIR, "BinaryMNIST", filename)
-        urllib.urlretrieve("http://www.cs.toronto.edu/~larocheh/public/datasets/binarized_mnist/binarized_mnist_train.amat",
-                           local_filename)
+        urllib.urlretrieve(url, local_filename)
