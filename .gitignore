@@ -57,5 +57,3 @@ docs/_build/
 target/
 
 .DS_Store
-datasets/OMNI/chardata.mat
-datasets/OMNIGLOT/chardata.mat
