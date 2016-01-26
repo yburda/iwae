@@ -13,7 +13,7 @@ To download the MNIST dataset (both the non-binarized version, and the binarized
 python download_mnist.py
 ```
 
-The OMNIGLOT dataset has not been publicly released yet. We will update the repository once it gets released.
+The OMNIGLOT dataset can be found at https://github.com/brendenlake/omniglot. We used a version of the dataset resized to 28x28 pixels available in this repository.
 
 # Usage
 ## Training randomly initialized models
